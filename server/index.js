@@ -8,6 +8,9 @@ require('dotenv').config({path:'./.env'})
 app.use(cors());
 app.use(express.json()); //req.body
 
+
+const PORT = process.env.PORT;
+
 console.log(`
   Database URL: ${process.env.DATABASE_URL} (${typeof(DATABASE_URL)}) 
   Database Name: ${process.env.PGDATABASE} (${typeof(PGDATABASE)})
@@ -104,6 +107,6 @@ app.delete("/todos/:id", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("server has started on port 5000");
 });
