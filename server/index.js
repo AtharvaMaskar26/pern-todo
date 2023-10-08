@@ -2,10 +2,20 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
+require('dotenv').config({path:'./.env'})
 
 //middleware
 app.use(cors());
 app.use(express.json()); //req.body
+
+console.log(`
+  Database URL: ${process.env.DATABASE_URL} (${typeof(DATABASE_URL)}) 
+  Database Name: ${process.env.PGDATABASE} (${typeof(PGDATABASE)})
+  Host: ${process.env.PGHOST} (${typeof(PGHOST)})
+  Password: ${process.env.PGPASSWORD} (${typeof(PGPASSWORD)})
+  Port: ${process.env.PGPORT} (${typeof(PGPORT)})
+  User: ${process.env.PGUSER} (${typeof(PGUSER)})
+`);
 
 //ROUTES//
 
