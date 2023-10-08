@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json()); //req.body
 
 
-const PORT = process.env.PORT;
+
 
 console.log(`
   Database URL: ${process.env.DATABASE_URL} (${typeof(DATABASE_URL)}) 
@@ -106,6 +106,8 @@ app.delete("/todos/:id", async (req, res) => {
     console.log(err.message);
   }
 });
+
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log("server has started on port 5000");
