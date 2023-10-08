@@ -46,6 +46,18 @@ app.get("/todos", async (req, res) => {
   }
 });
 
+app.get("/", (req, res) => {
+  try {
+    res.send(
+      {
+        name:"Atharva Maskar",
+      }
+    )
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 //get a todo
 
 app.get("/todos/:id", async (req, res) => {
